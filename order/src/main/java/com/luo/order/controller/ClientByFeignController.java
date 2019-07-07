@@ -2,6 +2,7 @@ package com.luo.order.controller;
 
 import com.luo.order.client.ProductClient;
 import com.luo.order.dataobject.ProductInfo;
+import com.luo.order.dto.CartDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -39,7 +40,16 @@ public class ClientByFeignController {
                 productClient.listForOrder(Arrays.asList("157875196366160022", "157875227953464068"));
         log.info("response={}", productInfos);
         return "od";
+    }
 
+    //
+    @GetMapping("/decreaseStock")
+    public String decreaseStock() {
+        CartDTO cartDTO = new CartDTO();
+        cartDTO.setProductId("164103465734242707");
+        cartDTO.setProductQuantity(3);
+        productClient.decreaseStock(Arrays.asList(cartDTO));
+        return "odh";
     }
 
 
