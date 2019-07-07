@@ -2,6 +2,7 @@ package com.luo.product.controller;
 
 import com.luo.product.dataobject.ProductCategory;
 import com.luo.product.dataobject.ProductInfo;
+import com.luo.product.dto.CartDTO;
 import com.luo.product.service.CategoryService;
 import com.luo.product.service.ProductService;
 import com.luo.product.util.ResultVOUtils;
@@ -76,4 +77,13 @@ public class ProductController {
 
         return productService.findList(productIdList);
     }
+
+    //给订单服务用：这里会打印出sql语句
+    @PostMapping("/decreaseStock")//因为你用了@RequestBody， 这里要用PostMapping
+    public void decreaseStock(@RequestBody List<CartDTO> cartDTOList) {
+
+        productService.decreaseStock(cartDTOList);
+    }
+
+
 }
