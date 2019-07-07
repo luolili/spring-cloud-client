@@ -11,4 +11,7 @@ public interface ProductService {
      * @return
      */
     List<ProductInfo> findUpAll();
+    List<ProductInfo> findList(List<String> productIdList);
+
+
 }

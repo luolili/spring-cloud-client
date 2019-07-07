@@ -10,8 +10,7 @@ import com.luo.product.vo.ProductVO;
 import com.luo.product.vo.ResultVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,5 +67,13 @@ public class ProductController {
         }
         return ResultVOUtils.success(productVOList);
 
+    }
+
+
+    //给订单服务用：这里会打印出sql语句
+    @PostMapping("/listForOrder")//因为你用了@RequestBody， 这里要用PostMapping
+    public List<ProductInfo> getProductInfoList(@RequestBody List<String> productIdList) {
+
+        return productService.findList(productIdList);
     }
 }
