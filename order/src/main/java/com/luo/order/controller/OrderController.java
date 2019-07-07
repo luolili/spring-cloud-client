@@ -29,6 +29,9 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    /**
+     * 查询商品信息，需要调用商品的服务
+     */
     @PostMapping("/create")
     public ResultVO<Map<String,String>> create(@Valid OrderForm orderForm, BindingResult bindingResult) {
         //-1 参数验证
