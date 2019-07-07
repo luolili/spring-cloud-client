@@ -42,6 +42,11 @@
             <version>2.1.5.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <!--这里因为spring也用到了gson所以不必加版本号-->
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>

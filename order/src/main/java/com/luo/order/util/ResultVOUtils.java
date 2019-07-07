@@ -1,6 +1,7 @@
-package com.luo.product.util;
+package com.luo.order.util;
 
-import com.luo.product.vo.ResultVO;
+
+import com.luo.order.vo.ResultVO;
 
 public class ResultVOUtils {
 
