@@ -1,5 +1,6 @@
 package com.luo.order.controller;
 
+import com.luo.order.client.ProductClient;
 import com.luo.order.converter.OrderForm2OrderDTOConverter;
 import com.luo.order.dto.OrderDTO;
 import com.luo.order.enums.ResultEnum;
@@ -28,6 +29,7 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
+
 
     /**
      * 查询商品信息，需要调用商品的服务
