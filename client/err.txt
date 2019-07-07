@@ -1,0 +1,21 @@
+
+加注解@EnableEurekaClient；server段的自我保护机制：在server端去关闭
+server:
+    enable-self-preservation: false
+
+    出现：THE SELF PRESERVATION MODE IS TURNED OFF. THIS MAY NOT PROTECT INSTANCE EXPIRY IN CASE OF NETWORK/OTHER PROBLEMS.
+       DS Replicas
+1. 高版本：本次使用的版本：无法启动client
+
+加入web依赖：
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+出现：
+tomcat启动了：
+Tomcat started on port(s): 8080 (http) with context path ''
+Updating port to 8080
+client: 注册成功了
+DiscoveryClient_UNKNOWN/172.17.71.1 - registration status: 204

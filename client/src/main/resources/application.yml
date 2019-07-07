@@ -1,0 +1,12 @@
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:8761/eureka/,http://localhost:8762/eureka/
+
+
+#    instance:
+#      hostname: clientName
+#要注册的服务的名字：Instances currently registered with Eureka
+spring:
+  application:
+    name: client
