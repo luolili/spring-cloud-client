@@ -11,4 +11,8 @@
 确定边界：
 
 ------------服务之间的通信
+1. restTemplate
+2. feign:还没有找到对应版本的依赖
+.SocketTimeoutException: Read timed out
+重新刷新页面。
 
