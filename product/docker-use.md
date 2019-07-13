@@ -25,4 +25,5 @@ ports.
 
 7. ps -ef:看当前的进程
 
-8.exit: 退出 root@my-rabbit:/#
+8.exit: 退出 root@my-rabbit:/#  
+netstat na|grep 端口：看在监听的端口
