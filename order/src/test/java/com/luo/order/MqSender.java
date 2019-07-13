@@ -24,4 +24,9 @@ public class MqSender {
     public void send() {
         amqpTemplate.convertAndSend("myQueue","now" + new Date());
     }
+
+    @Test
+    public void sendOrder() {
+        amqpTemplate.convertAndSend("myOrder","computer","now" + new Date());
+    }
 }

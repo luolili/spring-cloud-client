@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/env")
 public class EnvController {
 
-    @Value("${env}")
+   /* @Value("${env}")
     private String env;
 
     @GetMapping("print")
     public String printEnv() {
         return env;
     }
-
+*/
 }

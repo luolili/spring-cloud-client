@@ -1,11 +1,11 @@
 spring:
   application:
     name: order
-#  datasource:
-#    driver-class-name: com.mysql.jdbc.Driver
-#    username: root
-#    password: 123
-#    url: jdbc:mysql://127.0.0.1/Springcloud_sell?serverTimezone=UTC&characterEncoding=utf-8&userSSL=false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123
+    url: jdbc:mysql://127.0.0.1/Springcloud_sell?serverTimezone=UTC&characterEncoding=utf-8&userSSL=false
 
   cloud:
     config:
@@ -14,6 +14,12 @@ spring:
 
         service-id: CONFIG
       profile: text
+# 当有多个服务的时候，进行分组，让某个消息只传到某一个服务
+    stream:
+      bindings:
+        myMessage01:
+          group: order
+
   rabbitmq:
     host: 192.168.99.100
     port: 5672
