@@ -16,3 +16,17 @@
 .SocketTimeoutException: Read timed out
 重新刷新页面。
 
+统一配置中心的client端：报数据库的设置有问题
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+将application.yml改名为bootstrap.yml
+日志：
+Fetching config from server at : http://172.21.36.1:8080/
+Located environment: name=order, profiles=[dev], label=null,
+version=f40f9c00f95274710ed1e83044c9a1a71a2ad96d, state=null
+
+Located property source: CompositePropertySource {name='configService', propertySources=[MapPropertySource {name='configClient'}, MapPropertySource {name='https://github.com/luolili/config-repo.git/order-dev.yml'},
+MapPropertySource {name='https://github.com/luolili/config-repo.git/order.yml'}]}
+
+DiscoveryClient_ORDER/172.21.36.1:order:8081 - registration status: 204

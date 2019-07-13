@@ -17,7 +17,9 @@ Adding property source: file:/C:/Users/ADMINI~1/AppData/Local/Temp/config-repo-3
 命名规则：
 /{name}-{profile}.yml
 or
-/{lable}/{name}-{profile}.yml
+/{label}/{name}-{profile}.yml
 name:order  profile:环境  label：分支(branch)
 
-baseUrl:本地的配置文件的地址
+basedir:本地的配置文件的地址
+
+于order项目里面加入clien依赖：
