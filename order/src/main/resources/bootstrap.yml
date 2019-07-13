@@ -19,6 +19,8 @@ spring:
       bindings:
         myMessage01:
           group: order
+          #配置消息的展示类型
+          content-type: application/json
 
   rabbitmq:
     host: 192.168.99.100
