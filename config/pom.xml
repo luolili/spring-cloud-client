@@ -21,11 +21,14 @@
 
     <dependencies>
 
-
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>2.2.0.BUILD-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-ampq</artifactId>
             <version>2.2.0.BUILD-SNAPSHOT</version>
         </dependency>
 

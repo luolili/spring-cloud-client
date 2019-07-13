@@ -30,3 +30,11 @@ Located property source: CompositePropertySource {name='configService', property
 MapPropertySource {name='https://github.com/luolili/config-repo.git/order.yml'}]}
 
 DiscoveryClient_ORDER/172.21.36.1:order:8081 - registration status: 204
+
+
+----------rabbitmq使用
+启动日志：
+Attempting to connect to: [localost:5672]
+
+Restarting Consumer@3b493: tags=[[]], channel=null,
+ acknowledgeMode=AUTO local queue size=0

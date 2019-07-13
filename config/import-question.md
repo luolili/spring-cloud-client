@@ -22,4 +22,14 @@ name:order  profile:环境  label：分支(branch)
 
 basedir:本地的配置文件的地址
 
-于order项目里面加入clien依赖：
+于order项目里面
+1.加入client依赖
+2.注释原来的配置
+3.该application.yml -->bootstrap.yml
+
+#配置的动态刷新
+在更改了config-repo的配置之后，可以不用重启项目
+
+remote git repo -->config server-->order
+                              |      
+                              local git repo
