@@ -17,3 +17,12 @@ ports.
 访问地址不是localhost:15672
 
 从底向上来打包应用； 对资源的有效隔离/管理，轻量级； 可复用，版本化
+
+5. docker run 镜像名：docker run hello-world
+
+6. docker exec -it container id bash : 进入：root@my-rabbit:/#
+ then ls:查看所有的目录
+
+7. ps -ef:看当前的进程
+
+8.exit: 退出 root@my-rabbit:/#
