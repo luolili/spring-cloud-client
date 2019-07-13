@@ -6,3 +6,18 @@
 
 2.
 Invalid config server configuration.
+先在github上创建一个repo,添加order.yml文件，然后于config项目的yml里配置
+新创建的repo的https地址
+日志：
+Adding property source: file:/C:/Users/ADMINI~1/AppData/Local/Temp/config-repo-3562650739285832160/order.yml
+在启动的时候会出现超时的问题：
+设置github的connection timeout为更大的数
+
+启动成功后，访问：http://localhost:8080/order-a.yml
+命名规则：
+/{name}-{profile}.yml
+or
+/{lable}/{name}-{profile}.yml
+name:order  profile:环境  label：分支(branch)
+
+baseUrl:本地的配置文件的地址

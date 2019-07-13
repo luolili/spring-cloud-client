@@ -6,8 +6,9 @@ spring:
       server:
         git:
           uri: https://github.com/luolili/config-repo.git
-          username: luoli
+          username: luolili
           password: luoli1994
+          basedir: F:\pro\spring-cloud-config-file
 
 
 eureka:
