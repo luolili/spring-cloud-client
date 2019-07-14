@@ -16,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -29,7 +30,6 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
-
 
     /**
      * 查询商品信息，需要调用商品的服务
@@ -54,5 +54,12 @@ public class OrderController {
 
         map.put("orderId", result.getOrderId());
         return ResultVOUtils.success(map);
+    }
+
+    @PostMapping("/finish")
+    public ResultVO finish(@RequestParam("orderId") String orderId) {
+        OrderDTO orderDTO = orderService.finish(orderId);
+        return ResultVOUtils.success(orderDTO);
+
     }
 }

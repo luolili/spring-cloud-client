@@ -8,6 +8,8 @@ import com.luo.order.dto.CartDTO;
 import com.luo.order.dto.OrderDTO;
 import com.luo.order.enums.OrderStatusEnum;
 import com.luo.order.enums.PayStatusEnum;
+import com.luo.order.enums.ResultEnum;
+import com.luo.order.exception.OrderException;
 import com.luo.order.repo.OrderDetailRepository;
 import com.luo.order.repo.OrderMasterRepository;
 import com.luo.order.service.OrderService;
@@ -15,10 +17,13 @@ import com.luo.order.util.KeyUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -31,6 +36,7 @@ public class OrderServiceImpl implements OrderService {
     private ProductClient productClient;
 
     @Override
+    @Transactional
     public OrderDTO create(OrderDTO orderDTO) {
        String orderId = KeyUtils.genUniqueKey();
         //-1v调用商品服务
@@ -57,7 +63,6 @@ public class OrderServiceImpl implements OrderService {
         }
 
         //-3 扣库存
-
         List<CartDTO> cartDTOList = orderDTO.getOrderDetailList().stream()
                 .map(e -> new CartDTO(e.getProductId(), e.getProductQuantity()))
                 .collect(Collectors.toList());
@@ -73,6 +78,38 @@ public class OrderServiceImpl implements OrderService {
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
 
         orderMasterRepository.save(orderMaster);
+        return orderDTO;
+    }
+
+    //卖家来操作：改变订单的状态
+    @Override
+    @Transactional
+    public OrderDTO finish(String orderId) {
+        //- 1 查询这个订单
+
+        Optional<OrderMaster> orderMasterOptional = orderMasterRepository.findById(orderId);
+        if (!orderMasterOptional.isPresent()) {
+            throw new OrderException(ResultEnum.ORDER_NOT_EXIST);
+        }
+        OrderMaster orderMaster = orderMasterOptional.get();
+
+        //-2 判断订单状态
+        //不是新订单
+        if (OrderStatusEnum.NEW.getCode() != orderMaster.getOrderStatus()) {
+            throw new OrderException(ResultEnum.ORDER_STATUS_ERROR);
+        }
+        //-3 修改状态
+        orderMaster.setOrderStatus(OrderStatusEnum.FINISHED.getCode());
+        orderMasterRepository.save(orderMaster);
+        //-4 查询该订单的详情
+        List<OrderDetail> orderDetailList = orderDetailRepository.findByOrderId(orderId);
+        if (CollectionUtils.isEmpty(orderDetailList)) {
+            throw new OrderException(ResultEnum.ORDER_DETAIL_NOT_EXIST);
+        }
+        OrderDTO orderDTO = new OrderDTO();
+        BeanUtils.copyProperties(orderMaster, orderDTO);
+        orderDTO.setOrderDetailList(orderDetailList);
+
         return orderDTO;
     }
 }
