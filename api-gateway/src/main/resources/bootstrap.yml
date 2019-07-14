@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    config:
+      discovery:
+        enabled: true
+
+        service-id: CONFIG
+      profile: dev
+
+  rabbitmq:
+    host: 192.168.99.100
+    port: 5672
+    username: guest
+    password: guest
+
+  jpa:
+    show-sql: true
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:8761/eureka/
+
+server:
+  port: 8083
+
+# 设置gateway的超时时间
+
+ribbon:
+  ReadTimeout: 90000
+  SocketTimeout: 90000
+
+# 自定义服务的访问路径
+zuul:
+  routes:
+    myProduct:
+      path: /myProduct/**
+      serviceId: product
+      sensitiveHeaders:   #让cookie可以传到后台request
+
+    # 简洁写法
+    #product: /myProduct/**
+
+    #不让web端访问这几个接口
+  ignored-patterns:
+    - /product/product/listForOrder
+   # - /myProduct/product/listForOrder
+#访问application/routs的权限
+management:
+  security:
+    enabled: false
