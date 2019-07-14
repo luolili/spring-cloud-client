@@ -9,13 +9,14 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.*;
+import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_DECORATION_FILTER_ORDER;
+import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
 
 /**
- * 让经过zuul的请求都必须带有token且不为空，才能被访问
+ * 权限验证：分区卖家，买家
  */
 @Component
-public class TokenFilter extends ZuulFilter {
+public class AuthFilter extends ZuulFilter {
     @Override
     public String filterType() {
         return PRE_TYPE;
@@ -37,14 +38,7 @@ public class TokenFilter extends ZuulFilter {
         RequestContext currentContext = RequestContext.getCurrentContext();
         //-2 获取到请求对象
         HttpServletRequest request = currentContext.getRequest();
-        //-3 获取大token: 从参数里面获取。也可以从cookie/header里获取
-        String token = request.getParameter("token");
-        if (StringUtils.isEmpty(token)) {
-            //currentContext.setSendZuulResponse(false);
-            //currentContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());//401
-        }
-
-
+        // order/create 只能买家访问； order/finish 只能卖家访问；
         return null;
     }
 }
