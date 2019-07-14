@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49e24911-b82f-48d1-ad3b-5ae771861268" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/com/luo/apigateway/filter/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-gateway/src/main/java/com/luo/apigateway/filter/TokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/com/luo/apigateway/filter/TokenFilter.java" afterDir="false" />
+    <list default="true" id="49e24911-b82f-48d1-ad3b-5ae771861268" name="Default Changelist" comment="git repo uri setting">
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/constant/CookieConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/dataobject/UserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/enums/ResultEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/enums/RoleEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/repo/UserInfoRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/util/CookieUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/util/JsonUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/util/KeyUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/util/ResultVOUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/vo/ResultVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eureka" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/UserApplication.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -100,7 +113,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -208,7 +221,7 @@
       <workItem from="1562988075637" duration="11607000" />
       <workItem from="1563003948237" duration="478000" />
       <workItem from="1563076970182" duration="1310000" />
-      <workItem from="1563085749250" duration="1351000" />
+      <workItem from="1563085749250" duration="1938000" />
     </task>
     <task id="LOCAL-00001" summary="git repo uri setting">
       <created>1562994492105</created>
@@ -228,10 +241,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16284000" />
+    <option name="totallyTimeSpent" value="16871000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
@@ -244,8 +257,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3295082" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5147541" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3295082" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.5147541" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
