@@ -49,6 +49,9 @@ zuul:
   ignored-patterns:
     - /product/product/listForOrder
    # - /myProduct/product/listForOrder
+
+  #全局的cookie配置
+  sensitive-headers:
 #访问application/routs的权限
 management:
   security:

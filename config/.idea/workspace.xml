@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49e24911-b82f-48d1-ad3b-5ae771861268" name="Default Changelist" comment="git repo uri setting">
-      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/constant/RedisConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/com/luo/apigateway/constant/CookieConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/com/luo/apigateway/constant/RedisConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/com/luo/apigateway/util/CookieUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/com/luo/apigateway/util/JsonUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/com/luo/apigateway/util/KeyUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/src/main/java/com/luo/apigateway/filter/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/com/luo/apigateway/filter/AuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eureka" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order/src/main/java/com/luo/order/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order/src/main/java/com/luo/order/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order/src/main/java/com/luo/order/enums/ResultEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order/src/main/java/com/luo/order/enums/ResultEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order/src/main/java/com/luo/order/repo/OrderDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order/src/main/java/com/luo/order/repo/OrderDetailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order/src/main/java/com/luo/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order/src/main/java/com/luo/order/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order/src/main/java/com/luo/order/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order/src/main/java/com/luo/order/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/util/CookieUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/luo/user/util/CookieUtils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
