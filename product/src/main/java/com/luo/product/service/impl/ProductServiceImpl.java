@@ -7,6 +7,9 @@ import com.luo.product.enums.ResultEnum;
 import com.luo.product.exception.ProductException;
 import com.luo.product.repo.ProductInfoRepository;
 import com.luo.product.service.ProductService;
+import com.luo.product.util.JsonUtils;
+import com.rabbitmq.tools.json.JSONUtil;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +22,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductInfoRepository productInfoRepository;
+
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     @Override
     public List<ProductInfo> findUpAll() {
@@ -34,7 +40,6 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public void decreaseStock(List<CartDTO> cartDTOList) {
         for (CartDTO cartDTO : cartDTOList) {
-
             Optional<ProductInfo> productInfoOptional =
                     productInfoRepository.findById(cartDTO.getProductId());
 
@@ -56,8 +61,8 @@ public class ProductServiceImpl implements ProductService {
             //设置新的库存
             productInfo.setProductStock(result);
             productInfoRepository.save(productInfo);
-
-
+            //发送mq消息
+            amqpTemplate.convertAndSend("productInfo", JsonUtils.toJson(productInfo));
 
         }
 

@@ -44,4 +44,5 @@ public class MqReceiver {
     public void process02(String message) {
         log.info("computer: {}",message);
     }
+
 }
