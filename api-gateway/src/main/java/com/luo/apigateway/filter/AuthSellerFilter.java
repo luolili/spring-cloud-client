@@ -1,6 +1,5 @@
 package com.luo.apigateway.filter;
 
-import com.luo.apigateway.constant.CookieConstant;
 import com.luo.apigateway.constant.RedisConstant;
 import com.luo.apigateway.util.CookieUtils;
 import com.netflix.zuul.ZuulFilter;
@@ -19,10 +18,10 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
 
 /**
- * 权限验证：分区卖家，买家
+ * 权限验证：卖家
  */
 @Component
-public class AuthFilter extends ZuulFilter {
+public class AuthSellerFilter extends ZuulFilter {
     @Override
     public String filterType() {
         return PRE_TYPE;
@@ -35,7 +34,14 @@ public class AuthFilter extends ZuulFilter {
 
     @Override
     public boolean shouldFilter() {
-        return true;
+        //-1 获取当前上下文
+        RequestContext currentContext = RequestContext.getCurrentContext();
+        //-2 获取到请求对象
+        HttpServletRequest request = currentContext.getRequest();
+        if ("/order/order/create".equals(request.getRequestURI())) {
+            return true;
+        }
+        return false;
     }
 
     @Autowired
@@ -47,14 +53,7 @@ public class AuthFilter extends ZuulFilter {
         //-2 获取到请求对象
         HttpServletRequest request = currentContext.getRequest();
         // order/create 只能买家访问； order/finish 只能卖家访问；
-        if ("/order/order/create".equals(request.getRequestURI())) {
-            Cookie cookie = CookieUtils.get(request, "openid");
-            if (cookie == null || StringUtils.isEmpty(cookie.getValue())) {
-                //无权限
-                currentContext.setSendZuulResponse(false);
-                currentContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
-            }
-        }
+
         if ("/order/order/finish".equals(request.getRequestURI())) {
             Cookie cookie = CookieUtils.get(request, "token");
             if (cookie == null || StringUtils.isEmpty(cookie.getValue()) ||
